@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>ShoppingMart::HomeMobile</title>
+	<h:outputStylesheet name="css/styles.css" />
+</h:head>
+<h:body>
+	<div class="shopping_wrapper">
+		<div class="shopping_main">
+			<div class="shopping_menu">
+				<ui:insert name="header">
+					<ui:include src="/WEB-INF/templates/userMenu.xhtml" />
+				</ui:insert>
+			</div>
+			<ui:insert name="content">
+				<!--  <div class="shopping_content">
+				<div class="shopping_product">
+					<div class="shopping_proimage"><img src="../images/redmi8pro.jpg" width="100%" height="100%"/></div>
+					<div class="shopping_proname"><p style="text-align:center; margin-top:10px; font-weight:bold; color:maroon;">Redmin Note 8 Pro</p></div>
+				<div class="shopping_proname"><p style="text-align:center; margin-top:10px; color:black;">₹ 14,000</p></div>
+				<div class="shopping_buynow"><p style="text-align:center;">
+				
+			<a href="#">Buy Now</a>	</p> </div>
+				</div>
+			</div>  -->
+
+
+				<div class="shopping_content">
+					<h:form id="dt2" value="#{shoppingDaoImpl.perInfoAll}" var="item"
+						bgcolor="#F1F1F1" border="10" cellpadding="5" cellspacing="3"
+						rows="4" width="50%" dir="LTR" frame="hsides" rules="all"
+						summary="This is a JSF code to create dataTable.">
+
+						<div class="shopping_product">
+							<div class="shopping_proimage">
+								<h:outputText style="" value="#{item.fileStoreBean.filename}"></h:outputText>
+							</div>
+							<div class="shopping_proname">
+								<h:outputText
+									style="text-align:center; margin-top:10px; font-weight:bold; color:maroon;"
+									value="#{item.fileStoreBean.proname}"></h:outputText>
+							</div>
+							<div class="shopping_proname">
+								<h:outputText
+									style="text-align:center; margin-top:10px; color:black;"
+									value="#{item.fileStoreBean.proprice}"></h:outputText>
+							</div>
+							<div class="shopping_buynow">
+								<p style="text-align: center;">
+
+									<a href="#">Buy Now</a>
+								</p>
+							</div>
+						</div>
+
+					</h:form>
+				</div>
+
+				<h:dataTable id="dt1" value="#{shoppingDaoImpl.perInfoAll}"
+					var="item" bgcolor="#F1F1F1" border="10" cellpadding="5"
+					cellspacing="3" rows="4" width="50%" dir="LTR" frame="hsides"
+					rules="all" summary="This is a JSF code to create dataTable.">
+					<f:facet name="header">
+						<h:outputText value="This is 'dataTable' demo" />
+					</f:facet>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="First Name" />
+						</f:facet>
+						<h:outputText style="" value="#{item.filename}"></h:outputText>
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Last Name" />
+						</f:facet>
+						<h:outputText value="#{item.proname}"></h:outputText>
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Username" />
+						</f:facet>
+						<h:outputText value="#{item.proprice}"></h:outputText>
+					</h:column>
+				</h:dataTable>
+
+			</ui:insert>
+
+
+		</div>
+	</div>
+
+
+
+
+</h:body>
+</html>

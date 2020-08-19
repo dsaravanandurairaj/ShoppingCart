@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>ShoppingMart::HomeMobile</title>
+	<h:outputStylesheet name="css/styles.css" />
+</h:head>
+<h:body>
+	<div class="shopping_wrapper">
+		<div class="shopping_main">
+			<div class="shopping_menu">
+				<ui:insert name="header">
+					<ui:include src="/WEB-INF/templates/adminMenu.xhtml" />
+				</ui:insert>
+			</div>
+			<ui:insert name="content">
+				<p:growl id="messages" showDetail="true" />
+
+				<div class="shopping_content">
+					<h:form id="form1" enctype="multipart/form-data">
+						<table>
+							<tr>
+								<td><h:outputLabel Value="Main Category">Main Category</h:outputLabel></td>
+								<td><h:outputLabel Value="Main Category">:</h:outputLabel></td>
+								<td><h:selectOneMenu id="mcategory"
+										value="#{fileUploadBean.mcategory}" style="width:125px">
+
+										<f:selectItem itemLabel="Electronics" itemValue="electronics" />
+										<f:selectItem itemLabel="Clothing" itemValue="clothing" />
+									</h:selectOneMenu></td>
+							</tr>
+							<tr>
+								<td><h:outputLabel Value="Sub Category">Sub Category</h:outputLabel></td>
+								<td><h:outputLabel Value="Sub Category">:</h:outputLabel></td>
+								<td><h:selectOneMenu id="subcategory"
+										value="#{fileUploadBean.subcategory}" style="width:125px">
+
+										<f:selectItem itemLabel="Mobiles" itemValue="mobiles" />
+										<f:selectItem itemLabel="Laptop" itemValue="laptop" />
+									</h:selectOneMenu></td>
+							</tr>
+							<tr>
+								<td><h:outputLabel Value="image">Choose Image</h:outputLabel></td>
+								<td><h:outputLabel Value="image">:</h:outputLabel></td>
+								<td><h:inputFile value="#{fileUploadBean.file}"
+										mode="simple" dragDropSupport="false" update="messages"
+										sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" /></td>
+							</tr>
+							<tr>
+								<td><h:outputLabel>Product Name</h:outputLabel></td>
+								<td>:</td>
+								<td><h:inputText value="#{fileUploadBean.proname}"
+										id="proname"></h:inputText></td>
+							</tr>
+							<tr>
+								<td><h:outputLabel>Product Price</h:outputLabel></td>
+								<td>:</td>
+								<td><h:inputText value="#{fileUploadBean.proprice}"
+										id="proprice"></h:inputText></td>
+							</tr>
+
+							<tr>
+								<td><h:commandButton value="Submit"
+										action="#{fileUploadBean.fileUploadProduct}"></h:commandButton></td>
+
+							</tr>
+
+						</table>
+
+					</h:form>
+					<!-- <h:dataTable id="dt1" value="#{shoppingDaoImpl.perInfoAll}" var="item" bgcolor="#F1F1F1" border="10" cellpadding="5" cellspacing="3"  rows="4" width="50%" dir="LTR" frame="hsides" rules="all" summary="This is a JSF code to create dataTable." >
+			<f:facet name="header">
+        <h:outputText value="This is 'dataTable' demo" />
+</f:facet> 
+
+<h:column>
+        <f:facet name="header">
+        <h:outputText value="First Name" />
+        </f:facet> 
+         <p:cellEditor>
+              <f:facet name="output"> <h:outputText style=""  value="#{item.filename}" ></h:outputText></f:facet>
+              </p:cellEditor>
+</h:column>
+
+<h:column>
+        <f:facet name="header">
+        <h:outputText value="Last Name"/>
+        </f:facet> 
+         <p:cellEditor>
+           <f:facet name="output">  <h:outputText  value="#{item.proname}"></h:outputText></f:facet>
+              </p:cellEditor>
+</h:column>
+
+<h:column>
+        <f:facet name="header">
+        <h:outputText value="Username"/>
+        </f:facet> 
+         <p:cellEditor>
+            <f:facet name="output"> <h:outputText value="#{item.proprice}"></h:outputText></f:facet>
+              </p:cellEditor>
+</h:column>
+ <p:column style="width:35px">
+            <p:rowEditor />
+        </p:column>
+
+			</h:dataTable> -->
+
+
+
+
+
+
+
+
+
+					<h:form id="form">
+						<p:growl id="msgs" showDetail="true" />
+
+						<p:dataTable id="info" var="infovar"
+							value="#{shoppingDaoImpl.perInfoAll}" editable="true"
+							style="margin-bottom:20px">
+
+
+							<p:ajax event="rowEdit" listener="#{shoppingDaoImpl.onEdit}"
+								update=":form:msgs" />
+							<p:ajax event="rowEditCancel"
+								listener="#{shoppingDaoImpl.onCancel}" update=":form:msgs" />
+
+							<p:column headerText="Filename">
+								<p:cellEditor>
+									<f:facet name="output">
+										<h:outputText value="#{infovar.filename}" />
+									</f:facet>
+									<f:facet name="input">
+										<p:inputText id="modelInput" value="#{infovar.filename}"
+											style="width:100%" />
+									</f:facet>
+								</p:cellEditor>
+							</p:column>
+							<p:column headerText="Main Category">
+								<p:cellEditor>
+									<f:facet name="output">
+										<h:outputText value="#{infovar.mcategory}" />
+									</f:facet>
+									<f:facet name="input">
+										<p:inputText value="#{infovar.mcategory}" style="width:100%"
+											label="Year" />
+									</f:facet>
+								</p:cellEditor>
+							</p:column>
+							<p:column headerText="Sub Category">
+								<p:cellEditor>
+									<f:facet name="output">
+										<h:outputText value="#{infovar.subcategory}" />
+									</f:facet>
+									<f:facet name="input">
+										<p:inputText value="#{infovar.subcategory}" style="width:100%"
+											label="Year" />
+									</f:facet>
+								</p:cellEditor>
+							</p:column>
+							<p:column headerText="Product Name">
+								<p:cellEditor>
+									<f:facet name="output">
+										<h:outputText value="#{infovar.proname}" />
+									</f:facet>
+									<f:facet name="input">
+										<p:inputText value="#{infovar.proname}" style="width:100%"
+											label="Year" />
+									</f:facet>
+								</p:cellEditor>
+							</p:column>
+
+							<p:column headerText="Product Price">
+								<p:cellEditor>
+									<f:facet name="output">
+										<h:outputText value="#{infovar.proprice}" />
+									</f:facet>
+									<f:facet name="input">
+										<p:inputText value="#{infovar.proprice}" style="width:100%"
+											label="Year" />
+									</f:facet>
+								</p:cellEditor>
+							</p:column>
+
+							<p:column style="width:35px">
+								<p:rowEditor />
+							</p:column>
+						</p:dataTable>
+					</h:form>
+				</div>
+			</ui:insert>
+
+
+		</div>
+	</div>
+
+
+
+
+</h:body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>User Registration</title>
+
+	<h:outputStylesheet name="css/styles.css" />
+</h:head>
+
+<h:body>
+	<div class="shopping_wrapper">
+		<div class="shopping_main">
+			<div class="shopping_mainin">
+				<h:form id="form">
+					<table>
+						<tr>
+							<td><h:outputLabel>First Name</h:outputLabel></td>
+							<td><h:outputLabel>:</h:outputLabel></td>
+							<td><h:inputText id="firstname" value="#{registerBean.firstname}"  style="width:200px;" autocomplete="off"  for="firstname" label="firstname"   >
+										
+									</h:inputText></td>	
+									<td><p:message for="firstname"></p:message></td>	
+						</tr>
+						
+						<tr>
+
+							<td><h:outputLabel value="Last Name"></h:outputLabel></td>
+							<td><h:outputLabel value=":"></h:outputLabel></td>
+							<td><h:inputText for="lastname" id="lastname" style="width:200px;" autocomplete="off" value="#{registerBean.lastname}">
+									
+								</h:inputText></td>
+						</tr>
+
+						<tr>
+							<td><h:outputLabel value="User Name"></h:outputLabel></td>
+							<td><h:outputLabel value=":"></h:outputLabel></td>
+							<td><h:inputText for="username" id="username" style="width:200px;" autocomplete="off" value="#{registerBean.username}">
+									
+								</h:inputText></td>
+						</tr>
+						
+						<tr>
+							<td><h:outputLabel value="Password"></h:outputLabel></td>
+							<td><h:outputLabel value=":"></h:outputLabel></td>
+							<td><h:inputSecret for="password" id="password" style="width:200px;" autocomplete="off" value="#{registerBean.password}">
+								
+								</h:inputSecret></td>
+						</tr>
+
+						<tr>
+							<td><h:outputLabel value="Email"></h:outputLabel></td>
+							<td><h:outputLabel value=":"></h:outputLabel></td>
+							<td><h:inputText for="email" id="email" style="width:200px;" autocomplete="off" value="#{registerBean.email}">
+									
+								</h:inputText></td>
+						</tr>
+						<tr>
+							<td><h:commandButton style="margin-top: 20px;" value="Submit" action="#{controllerShopping.regSubmit}">
+								</h:commandButton></td>
+
+							
+
+						</tr>
+						<tr>
+
+							<td><p:messages id="messages" closable="true">
+
+								</p:messages></td>
+
+						</tr>
+					</table>
+
+				</h:form>
+			</div>
+
+			<!-- <div class="shopping_menu">
+	  <ui:insert name = "header" >
+            <ui:include src = "/WEB-INF/templates/layoutMenu.xhtml" />
+      </ui:insert> 
+    </div> -->
+		</div>
+	</div>
+</h:body>
+</html>

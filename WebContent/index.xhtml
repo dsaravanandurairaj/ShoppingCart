@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Shopping Menu</title>
+
+	<h:outputStylesheet name="css/styles.css" />
+</h:head>
+
+<h:body>
+	<div class="shopping_wrapper">
+		<div class="shopping_main">
+		<div class="shopping_mainin">
+			<h:form>
+				<table>
+					<tr>
+						<td><h:outputLabel>Username</h:outputLabel></td>
+						<td><h:outputLabel>:</h:outputLabel></td>
+						<td><h:inputText id="username" for="username" value="#{registerBean.username}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputLabel>Password</h:outputLabel></td>
+						<td><h:outputLabel>:</h:outputLabel></td>
+						<td><h:inputSecret id="password" for="password" value="#{registerBean.password}"></h:inputSecret></td>
+					</tr>
+					<tr>
+					<td><h:commandButton value="Submit" action="#{controllerShopping.userLogin}"></h:commandButton></td>
+				
+					</tr>
+					
+				</table>
+				<!-- <a href="faces/userRegistration.xhtml">User Registration</a> -->
+			</h:form>
+			<h:form>
+			<table >
+				<tr><td><h:link outcome="userRegistration" value="New User Registration"></h:link></td>
+				<td><h:link outcome="adminLogin" value="Admin Login"></h:link></td>
+				
+				</tr>
+			
+			</table>
+			
+			</h:form>
+</div>
+			
+			<!-- <div class="shopping_menu">
+	  <ui:insert name = "header" >
+            <ui:include src = "/WEB-INF/templates/layoutMenu.xhtml" />
+      </ui:insert> 
+    </div> -->
+		</div>
+	</div>
+</h:body>
+
+</html>

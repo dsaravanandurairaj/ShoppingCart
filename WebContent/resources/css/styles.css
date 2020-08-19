@@ -1,0 +1,18 @@
+@charset "ISO-8859-1";
+
+body{margin: 0px; padding: 0px; font-size: 14px; font-family: sans-serif;}
+
+.shopping_wrapper{width:100%; float: left; height: auto;}
+.shopping_menu{width: 100%; float: left; height: 50px; }
+
+.shopping_main{width:90%; height: auto; margin: 0 auto; margin-top:100px;}
+.shopping_content{width:90%; height: auto; margin-top:100px;}
+.shopping_mainin{width:100%; margin: 0 auto; height: auto;}
+.shopping_button{width:100%; height: 20px;  float: left;}
+.shopping_product{width: 20%; float: left; height: 300px; margin:10px; border: 2px solid #ccc;}
+.shopping_proimage{width: 100%; float: left; height: 200px; }
+.shopping_proname{width: 100%; float: left; height: 30px;}
+.shopping_buynow{width:100%; float: left; height: 40px; background: maroon;}
+.shopping_buynow p a { margin-top:10px;text-decoration: none; color: white; font-weight: bold; }
+table tr td{padding: 10px 10px;}
+/* .shopping_logo{width: 30%; float: left; height: 50px; background: blue;} */
